@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /home/to/unet/
+cd /home/lss/caffe/unet/unet-caffe/
 pwd
-export PYTHONPATH=/path/to/unet:$PYTHONPATH
-/home/to/caffe train --solver=solver.prototxt
+export PYTHONPATH=/home/lss/caffe/unet/unet-caffe:$PYTHONPATH
+caffe.bin train --solver=solver.prototxt
