@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="infer_unet" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/infer_unet" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DUSE_OPENCV" />
+					<Add directory="/usr/include/python2.7" />
+					<Add directory="/usr/lib/python2.7/dist-packages/numpy/core/include" />
+					<Add directory="/usr/local/include" />
+					<Add directory="/usr/include/hdf5/serial" />
+					<Add directory="/usr/local/cuda/include" />
+					<Add directory="/home/ai-dell-1080/code/git-agx/caffe-code-git-local-191016/include" />
+				</Compiler>
+				<Linker>
+					<Add library="opencv_core" />
+					<Add library="opencv_highgui" />
+					<Add library="opencv_imgproc" />
+					<Add library="mssdcoreg" />
+					<Add library="glog" />
+					<Add library="gflags" />
+					<Add library="protobuf" />
+					<Add library="boost_system" />
+					<Add library="boost_filesystem" />
+					<Add library="opencv_imgcodecs" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/infer_unet" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DUSE_OPENCV" />
+					<Add directory="/usr/include/python2.7" />
+					<Add directory="/usr/lib/python2.7/dist-packages/numpy/core/include" />
+					<Add directory="/usr/local/include" />
+					<Add directory="/usr/include/hdf5/serial" />
+					<Add directory="/usr/local/cuda/include" />
+					<Add directory="/home/ai-dell-1080/code/git-agx/caffe-code-git-local-191016/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="opencv_core" />
+					<Add library="opencv_highgui" />
+					<Add library="opencv_imgproc" />
+					<Add library="mssdcoreg" />
+					<Add library="glog" />
+					<Add library="gflags" />
+					<Add library="protobuf" />
+					<Add library="boost_system" />
+					<Add library="boost_filesystem" />
+					<Add library="opencv_imgcodecs" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="infer_unet.cpp" />
+		<Unit filename="infer_unet.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
