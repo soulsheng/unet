@@ -7,9 +7,10 @@ class DataLayer(caffe.Layer):
 
     def setup(self, bottom, top):
 
-        self.imgdir = "/home/wangbin/caffeproject/unet/data/Img/"
-        self.maskdir = "/home/wangbin/caffeproject/unet/data/mask/"
-        self.imgtxt = "/home/wangbin/caffeproject/unet/data/test/img.txt"
+        self.imgdir = ""
+        self.maskdir = ""
+        self.imgtxt = "imglist.txt"
+        self.masktxt = "masklist.txt"
         self.random = True
         self.seed = None
 
@@ -20,6 +21,8 @@ class DataLayer(caffe.Layer):
             raise Exception("Do not define a bottom.")
 
         self.lines = open(self.imgtxt, 'r').readlines()
+	self.lines_mask = open(self.masktxt, 'r').readlines()
+
         self.idx = 0
 
         if self.random:
@@ -54,7 +57,7 @@ class DataLayer(caffe.Layer):
 
         imname = self.imgdir + self.lines[idx]
         imname = imname[:-2]
-        #print 'load img %s' %imname
+        print 'load img %s' %imname
         im = cv2.imread(imname)
         #im = cv2.imread(imname)
         #print im.shape
@@ -67,9 +70,9 @@ class DataLayer(caffe.Layer):
 
     def load_mask(self, idx):
 	outimg = np.empty((2,572,572))
-        imname = self.maskdir + self.lines[idx]
+        imname = self.maskdir + self.lines_mask[idx]
         imname = imname[:-2]
-        #print 'load mask %s' %imname
+        print 'load mask %s' %imname
         im = cv2.imread(imname)
         im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 	im = cv2.resize(im,(572,572))
